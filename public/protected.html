@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Protected — Sanjuli</title>
+    <style>body{font-family:system-ui,Segoe UI,Roboto,Arial;padding:2rem} .meta{margin-top:1rem}</style>
+  </head>
+  <body>
+    <script type="module" src="./menu.js"></script>
+
+    <h1>Protected Page</h1>
+    <p>This page is only visible to authenticated users. If you are not signed in you will be redirected to the login page.</p>
+
+    <div id="profile" style="display:none">
+      <h3 id="pName"></h3>
+      <img id="pPhoto" style="width:72px;border-radius:50%" />
+      <div class="meta"><button id="pSignOut">Sign out</button></div>
+    </div>
+
+    <script type="module">
+      import { requireAuth, signOutUser } from './firebase-client.js';
+
+      requireAuth({ redirectTo: '/login.html', onAuthenticated: (user) => {
+        document.getElementById('profile').style.display = 'block';
+        document.getElementById('pName').textContent = user.displayName || user.email;
+        document.getElementById('pPhoto').src = user.photoURL || '';
+      }});
+
+      document.getElementById('pSignOut').addEventListener('click', async () => {
+        await signOutUser();
+        window.location.href = '/';
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "sanjuli-site",
+  "version": "0.1.0",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "firebase": "^9.22.2",
+    "iconv-lite": "^0.7.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
