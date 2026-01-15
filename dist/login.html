@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Login — Sanjuli</title>
+    <style>body{font-family:system-ui,Segoe UI,Roboto,Arial;padding:2rem}</style>
+  </head>
+  <body>
+    <script type="module" src="./menu.js"></script>
+
+    <h1>Login</h1>
+    <p>Click the button below to sign in with Google. You will be redirected to the protected page after successful login.</p>
+    <button id="loginBtn">Sign in with Google</button>
+    <p style="margin-top:1rem"><a href="/">Back to Home</a></p>
+
+    <script type="module">
+      import { signInWithGoogle } from './firebase-client.js';
+
+      document.getElementById('loginBtn').addEventListener('click', async () => {
+        try {
+          await signInWithGoogle('/protected.html');
+        } catch (e) {
+          alert('Sign-in failed. See console.');
+        }
+      });
+    </script>
+  </body>
+</html>
