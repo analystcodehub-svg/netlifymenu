@@ -9,7 +9,7 @@ function createNav() {
   nav.style.marginBottom = '1rem';
 
   const left = document.createElement('div');
-  left.innerHTML = '<a href="/">Home</a> <a href="/login.html" style="margin-left:1rem">Login Page</a> <a href="/protected.html" style="margin-left:1rem">Protected</a>';
+  left.innerHTML = '<a href="/">Home</a> <a href="/protected.html" style="margin-left:1rem">Protected</a>';
 
   const right = document.createElement('div');
   right.style.position = 'relative';
